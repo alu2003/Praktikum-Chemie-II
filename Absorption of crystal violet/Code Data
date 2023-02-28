@@ -11,9 +11,6 @@ x_sol2, y_sol2 = np.loadtxt('Absorption of crystal violet/Solution_2_E3.csv', un
 x_sol3, y_sol3 = np.loadtxt('Absorption of crystal violet/Solution_3_E3.csv', unpack=True, delimiter=';', skiprows=1)
 x_sol4, y_sol4 = np.loadtxt('Absorption of crystal violet/Solution_4_E3.csv', unpack=True, delimiter=';', skiprows=1)
 
-# Rebuild the matplotlib font cache
-fm._rebuild()
-
 # choose font
 mpl.rcParams['font.family'] = 'Arial'
 mpl.rcParams["axes.linewidth"] = 1.5
@@ -54,4 +51,4 @@ ax.plot(x_sol4, y_sol4, linewidth=2, color='mediumvioletred', label='Solution 4'
 # plot legend
 ax.legend(bbox_to_anchor=(1, 1), loc=2, frameon=False, fontsize=16)
 
-fig.savefig('Absorption of crystal violet/fig1', bbox_inches='tight')
+fig.savefig('Absorption of crystal violet/fig1', bbox_inches='tight', dpi=400)
