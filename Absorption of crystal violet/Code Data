@@ -6,10 +6,10 @@ import numpy as np
 from pylab import cm
 
 # Import data
-x_sol1, y_sol1 = np.loadtxt('Solution_1_E3.csv', unpack=True, delimiter=';', skiprows=1)
-x_sol2, y_sol2 = np.loadtxt('Solution_2_E3.csv', unpack=True, delimiter=';', skiprows=1)
-x_sol3, y_sol3 = np.loadtxt('Solution_3_E3.csv', unpack=True, delimiter=';', skiprows=1)
-x_sol4, y_sol4 = np.loadtxt('Solution_4_E3.csv', unpack=True, delimiter=';', skiprows=1)
+x_sol1, y_sol1 = np.loadtxt('Absorption of crystal violet/Solution_1_E3.csv', unpack=True, delimiter=';', skiprows=1)
+x_sol2, y_sol2 = np.loadtxt('Absorption of crystal violet/Solution_2_E3.csv', unpack=True, delimiter=';', skiprows=1)
+x_sol3, y_sol3 = np.loadtxt('Absorption of crystal violet/Solution_3_E3.csv', unpack=True, delimiter=';', skiprows=1)
+x_sol4, y_sol4 = np.loadtxt('Absorption of crystal violet/Solution_4_E3.csv', unpack=True, delimiter=';', skiprows=1)
 
 # Rebuild the matplotlib font cache
 fm._rebuild()
@@ -23,8 +23,8 @@ fig = plt.figure(figsize=(5,5), linewidth=8)
 ax = fig.add_subplot(111)
 
 # choose axis limits
-ax.set_xlim(-1, 11)
-ax.set_ylim(0, 1)
+ax.set_xlim(-10, 750)
+ax.set_ylim(-0.1, 0.8)
 
 # choose tick sizes
 ax.xaxis.set_tick_params(which='major', size=10, width=2, direction='in', top='on')
@@ -33,10 +33,10 @@ ax.yaxis.set_tick_params(which='major', size=10, width=2, direction='in', right=
 ax.yaxis.set_tick_params(which='minor', size=7, width=2, direction='in', right='on')
 
 # choose tick intervals
-ax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(2))
-ax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(1))
-ax.yaxis.set_major_locator(mpl.ticker.MultipleLocator(0.2))
-ax.yaxis.set_minor_locator(mpl.ticker.MultipleLocator(0.1))
+ax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(100))
+ax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(50))
+ax.yaxis.set_major_locator(mpl.ticker.MultipleLocator(0.1))
+ax.yaxis.set_minor_locator(mpl.ticker.MultipleLocator(0.05))
 
 ax.tick_params(axis='x', labelsize=15)
 ax.tick_params(axis='y', labelsize=15)
@@ -46,12 +46,12 @@ ax.set_xlabel('B [mg/l]', fontsize=15)
 ax.set_ylabel('Absorption', fontsize=15)
 
 # plot data
-ax.plot(x_sol1, y_sol1, linewidth=2, color='darkcyan', label='Solution 1', marker='o')
-ax.plot(x_sol2, y_sol2, linewidth=2, color='darkseagreen', label='Solution 2', marker='o')
-ax.plot(x_sol3, y_sol3, linewidth=2, color='slateblue', label='Solution 3', marker='o')
-ax.plot(x_sol4, y_sol4, linewidth=2, color='mediumvioletred', label='Solution 4', marker='o')
+ax.plot(x_sol1, y_sol1, linewidth=2, color='darkcyan', label='Solution 1', marker='o', markersize=3)
+ax.plot(x_sol2, y_sol2, linewidth=2, color='darkseagreen', label='Solution 2', marker='o', markersize=3)
+ax.plot(x_sol3, y_sol3, linewidth=2, color='slateblue', label='Solution 3', marker='o', markersize=3)
+ax.plot(x_sol4, y_sol4, linewidth=2, color='mediumvioletred', label='Solution 4', marker='o', markersize=3)
 
 # plot legend
 ax.legend(bbox_to_anchor=(1, 1), loc=2, frameon=False, fontsize=16)
 
-fig.savefig('fig1', bbox_inches='tight')
+fig.savefig('Absorption of crystal violet/fig1', bbox_inches='tight')
