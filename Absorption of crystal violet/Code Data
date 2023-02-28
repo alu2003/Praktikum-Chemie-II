@@ -11,9 +11,6 @@ x_sol2, y_sol2 = np.loadtxt('Absorption of crystal violet/Solution_2_E3.csv', un
 x_sol3, y_sol3 = np.loadtxt('Absorption of crystal violet/Solution_3_E3.csv', unpack=True, delimiter=';', skiprows=1)
 x_sol4, y_sol4 = np.loadtxt('Absorption of crystal violet/Solution_4_E3.csv', unpack=True, delimiter=';', skiprows=1)
 
-# Rebuild the matplotlib font cache
-fm._rebuild()
-
 # choose font
 mpl.rcParams['font.family'] = 'Arial'
 mpl.rcParams["axes.linewidth"] = 1.5
@@ -24,13 +21,13 @@ ax = fig.add_subplot(111)
 
 # choose axis limits
 ax.set_xlim(-10, 750)
-ax.set_ylim(-0.1, 0.8)
+ax.set_ylim(-0.05, 0.7)
 
 # choose tick sizes
-ax.xaxis.set_tick_params(which='major', size=10, width=2, direction='in', top='on')
-ax.xaxis.set_tick_params(which='minor', size=7, width=2, direction='in', top='on')
-ax.yaxis.set_tick_params(which='major', size=10, width=2, direction='in', right='on')
-ax.yaxis.set_tick_params(which='minor', size=7, width=2, direction='in', right='on')
+ax.xaxis.set_tick_params(which='major', size=8, width=1.5, direction='in', top='on')
+ax.xaxis.set_tick_params(which='minor', size=5, width=1, direction='in', top='on')
+ax.yaxis.set_tick_params(which='major', size=8, width=1.5, direction='in', right='on')
+ax.yaxis.set_tick_params(which='minor', size=5, width=1, direction='in', right='on')
 
 # choose tick intervals
 ax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(100))
@@ -42,8 +39,9 @@ ax.tick_params(axis='x', labelsize=15)
 ax.tick_params(axis='y', labelsize=15)
 
 # label axes
-ax.set_xlabel('B [mg/l]', fontsize=15)
+ax.set_xlabel('seconds', fontsize=15)
 ax.set_ylabel('Absorption', fontsize=15)
+ax.set_title("Absorption of crystal violet", fontsize = 15)
 
 # plot data
 ax.plot(x_sol1, y_sol1, linewidth=2, color='darkcyan', label='Solution 1', marker='o', markersize=3)
