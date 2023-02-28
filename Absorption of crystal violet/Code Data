@@ -11,6 +11,12 @@ x_sol2, y_sol2 = np.loadtxt('Absorption of crystal violet/Solution_2_E3.csv', un
 x_sol3, y_sol3 = np.loadtxt('Absorption of crystal violet/Solution_3_E3.csv', unpack=True, delimiter=';', skiprows=1)
 x_sol4, y_sol4 = np.loadtxt('Absorption of crystal violet/Solution_4_E3.csv', unpack=True, delimiter=';', skiprows=1)
 
+# convert seconds to minutes
+x_sol1 /= 60
+x_sol2 /= 60
+x_sol3 /= 60
+x_sol4 /= 60
+
 # choose font
 mpl.rcParams['font.family'] = 'Arial'
 mpl.rcParams["axes.linewidth"] = 1.5
@@ -20,7 +26,7 @@ fig = plt.figure(figsize=(5,5), linewidth=8)
 ax = fig.add_subplot(111)
 
 # choose axis limits
-ax.set_xlim(-10, 750)
+ax.set_xlim(-0.1, 12.5)
 ax.set_ylim(-0.05, 0.7)
 
 # choose tick sizes
@@ -30,8 +36,8 @@ ax.yaxis.set_tick_params(which='major', size=8, width=1.5, direction='in', right
 ax.yaxis.set_tick_params(which='minor', size=5, width=1, direction='in', right='on')
 
 # choose tick intervals
-ax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(100))
-ax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(50))
+ax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(2))
+ax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(1))
 ax.yaxis.set_major_locator(mpl.ticker.MultipleLocator(0.1))
 ax.yaxis.set_minor_locator(mpl.ticker.MultipleLocator(0.05))
 
@@ -52,4 +58,4 @@ ax.plot(x_sol4, y_sol4, linewidth=2, color='mediumvioletred', label='Solution 4'
 # plot legend
 ax.legend(bbox_to_anchor=(1, 1), loc=2, frameon=False, fontsize=16)
 
-fig.savefig('Absorption of crystal violet/fig1', bbox_inches='tight', dpi=400)
+fig.savefig('Absorption of crystal violet/fig2', bbox_inches='tight', dpi=400)
