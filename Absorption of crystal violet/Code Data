@@ -27,7 +27,7 @@ ax = fig.add_subplot(111)
 
 # choose axis limits
 ax.set_xlim(-0.1, 12.5)
-ax.set_ylim(-0.05, 0.7)
+ax.set_ylim(-0.025, 0.65)
 
 # choose tick sizes
 ax.xaxis.set_tick_params(which='major', size=8, width=1.5, direction='in')
@@ -47,7 +47,7 @@ ax.tick_params(axis='y', labelsize=15)
 # label axes
 ax.set_xlabel('minutes', fontsize=15)
 ax.set_ylabel('Absorption', fontsize=15)
-ax.set_title("Absorption of crystal violet", fontsize = 15)
+ax.set_title("Absorption of crystal violet", fontsize = 17)
 
 # plot data
 ax.plot(x_sol1, y_sol1, linewidth=2, color='darkcyan', label='Solution 1', marker='o', markersize=2.5)
