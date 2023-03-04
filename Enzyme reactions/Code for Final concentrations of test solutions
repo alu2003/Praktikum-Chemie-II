@@ -1,0 +1,50 @@
+# Import required packages
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import numpy as np
+from pylab import cm
+
+# Import data
+x_final, y_final = np.loadtxt('final_concentrations.csv', unpack=True, delimiter=';', skiprows=1)
+
+# choose font
+mpl.rcParams['font.family'] = 'Arial'
+mpl.rcParams["axes.linewidth"] = 1.5
+
+# create figure
+fig = plt.figure(figsize=(5,5), linewidth=8)
+ax = fig.add_subplot(111)
+
+# choose axis limits
+ax.set_xlim(-0.1, 12.5)
+ax.set_ylim(-0.025, 0.65)
+
+# choose tick sizes
+ax.xaxis.set_tick_params(which='major', size=8, width=1.5, direction='in')
+ax.xaxis.set_tick_params(which='minor', size=5, width=1, direction='in')
+ax.yaxis.set_tick_params(which='major', size=8, width=1.5, direction='in')
+ax.yaxis.set_tick_params(which='minor', size=5, width=1, direction='in')
+
+# choose tick intervals
+ax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(2))
+ax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(1))
+ax.yaxis.set_major_locator(mpl.ticker.MultipleLocator(0.1))
+ax.yaxis.set_minor_locator(mpl.ticker.MultipleLocator(0.05))
+
+ax.tick_params(axis='x', labelsize=15)
+ax.tick_params(axis='y', labelsize=15)
+
+# label axes
+ax.set_xlabel('time / s', fontsize=15)
+ax.set_ylabel('mass concentration', fontsize=15)
+ax.set_title("Enzyme reaction", fontsize = 17)
+
+# plot data
+ax.plot(x_final, y_final, linewidth=2, color='darkcyan', label='Solution 1', marker='o', markersize=2.5)
+
+
+# plot legend
+ax.legend(bbox_to_anchor=(1, 1), loc=2, frameon=False, fontsize=16)
+
+fig.savefig('Enzyme reactions/fig1', bbox_inches='tight', dpi=400)
